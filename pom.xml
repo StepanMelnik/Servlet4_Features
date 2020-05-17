@@ -1,0 +1,269 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.sme</groupId>
+        <artifactId>parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.sme.servlet</groupId>
+    <artifactId>servlet4-features</artifactId>
+    <version>0.0.0.Dev-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>${project.organization.name} :: ${application.name}</name>
+    <url>https://github.com/StepanMelnik/Servlet4_Features</url>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>stepan</id>
+            <name>Stepan Melnyk</name>
+            <roles>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:StepanMelnik/Servlet4_Features.git</connection>
+        <developerConnection>scm:git:git@github.com:StepanMelnik/Servlet4_Features.git</developerConnection>
+        <url>https://github.com/StepanMelnik/Servlet4_Features</url>
+    </scm>
+
+    <!-- Local Sonatype Nexus Repository -->
+    <distributionManagement>
+        <repository>
+            <id>repository.sme.com</id>
+            <url>http://repository.sme.com:8081/repository/maven-internal-release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>repository.sme.com</id>
+            <url>http://repository.sme.com:8081/repository/maven-internal-snapshot/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <application.name>Servlet4 Features</application.name>
+
+        <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
+        <javax.servlet.jsp-api.version>2.3.3</javax.servlet.jsp-api.version>
+        <tomcat-embed-core.version>9.0.35</tomcat-embed-core.version>
+        <org.codehaus.cargo.version>1.7.9</org.codehaus.cargo.version>
+        <commons-lang3.version>3.10</commons-lang3.version>
+        <commons-io.version>2.6</commons-io.version>
+        <slf4j.version>1.7.30</slf4j.version>
+
+        <junit-jupiter.version>5.6.2</junit-jupiter.version>
+        <mockito.version>1.10.19</mockito.version>
+    </properties>
+
+    <dependencies>
+        
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api -->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>${javax.servlet.jsp-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-core -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>${tomcat-embed-core.version}</version>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.cargo</groupId>
+            <artifactId>cargo-maven2-plugin</artifactId>
+            <version>${org.codehaus.cargo.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.cargo</groupId>
+            <artifactId>cargo-core-container-tomcat</artifactId>
+            <version>${org.codehaus.cargo.version}</version>
+        </dependency>
+
+        <!-- Test -->
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>servlet4-features</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <fork>true</fork>
+                    <forceJavacCompilerUse>true</forceJavacCompilerUse>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.junit.platform</groupId>
+                        <artifactId>junit-platform-surefire-provider</artifactId>
+                        <version>1.1.0</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.junit.jupiter</groupId>
+                        <artifactId>junit-jupiter-engine</artifactId>
+                        <version>${junit-jupiter.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.3</version>
+                <configuration>
+                    <warName>Servlet4Features</warName>
+                </configuration>
+            </plugin>
+            <!-- https://codehaus-cargo.github.io/cargo/Tomcat+9.x.html -->
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.7.9</version>
+                <configuration>
+                    <skip>true</skip>
+                    <container>
+                        <systemProperties>
+                            <projectName>${project.name}</projectName>
+                        </systemProperties>
+                        <containerId>tomcat9x</containerId>
+                        <zipUrlInstaller>
+                            <url>https://repo.maven.apache.org/maven2/org/apache/tomcat/tomcat/9.0.35/tomcat-9.0.35.zip</url>
+                        </zipUrlInstaller>
+                    </container>
+                    <configuration>
+                        <type>standalone</type>
+                        <properties>
+                            <cargo.servlet.port>8443</cargo.servlet.port>
+                            <!--cargo.protocol>https</cargo.protocol-->
+                            <cargo.tomcat.httpSecure>true</cargo.tomcat.httpSecure>
+                            <cargo.servlet.users>tomcat:secret:manager-gui,manager-script,manager-jmx</cargo.servlet.users>
+                            <!--cargo.tomcat.connector.protocolClass>org.apache.coyote.http11.Http11AprProtocol</cargo.tomcat.connector.protocolClass>
+                            <cargo.tomcat.connector.httpUpgradeProtocol>true</cargo.tomcat.connector.httpUpgradeProtocol-->
+                            <cargo.jvmargs>
+                                -Xmx1024m
+                                -Xms512m
+                                -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=8100
+                            </cargo.jvmargs>
+                        </properties>
+                    </configuration>
+                    <deployables>
+                        <deployable>
+                            <groupId>org.codehaus.cargo</groupId>
+                            <artifactId>simple-war</artifactId>
+                            <type>war</type>
+                            <location>target/Servlet4Features.war</location>
+                            <properties>
+                                <context>Servlet4Features</context>
+                            </properties>
+                        </deployable>
+                    </deployables>
+                    <executions>
+                        <execution>
+                            <id>start-server</id>
+                            <phase>pre-integration-test</phase>
+                            <goals>
+                                <goal>start</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>stop-server</id>
+                            <phase>post-integration-test</phase>
+                            <goals>
+                                <goal>stop</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.21.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                        <configuration>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
