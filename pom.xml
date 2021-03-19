@@ -59,7 +59,7 @@
 
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
         <javax.servlet.jsp-api.version>2.3.3</javax.servlet.jsp-api.version>
-        <tomcat-embed-core.version>9.0.35</tomcat-embed-core.version>
+        <tomcat-embed-core.version>9.0.41</tomcat-embed-core.version>
         <org.codehaus.cargo.version>1.7.9</org.codehaus.cargo.version>
         <commons-lang3.version>3.10</commons-lang3.version>
         <commons-io.version>2.6</commons-io.version>
